@@ -13,7 +13,7 @@ import { Textarea } from "../ui/textarea"
 import { roundToNext15 } from "@/src/utils/datetime"
 
 interface EventModalProps {
-  onAddEvent: (eventData: {
+  onAddEvent?: (eventData: {
     title: string
     start: string
     end: string
@@ -22,7 +22,7 @@ interface EventModalProps {
   }) => void
 }
 
-export const EventModal = ({ onAddEvent }: EventModalProps) => {
+export const EventModal = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [defaultDate] = useState(new Date().toISOString().split("T")[0])
   const now = new Date()
@@ -43,13 +43,13 @@ export const EventModal = ({ onAddEvent }: EventModalProps) => {
     const start = `${date} ${startTime}`
     const end = `${date} ${endTime}`
 
-    onAddEvent({
+    /* onAddEvent({
       title,
       start,
       end,
       location,
       description,
-    })
+    }) */
 
     setIsOpen(false)
   }

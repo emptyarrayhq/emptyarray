@@ -22,17 +22,16 @@ interface CalendarEvent {
 }
 
 interface UseCalendarProps {
+  events?: CalendarEvent[]
   defaultView?: string
   theme?: string
 }
 
 const useCalendar = ({
+  events,
   defaultView = viewWeek.name,
   theme = "shadcn",
 }: UseCalendarProps = {}) => {
-  const [events, setEvents] = useState<CalendarEvent[]>([])
-  const [eventId, setEventId] = useState(1)
-
   const plugins = [
     createDragAndDropPlugin(),
     createResizePlugin(),
@@ -56,20 +55,8 @@ const useCalendar = ({
     plugins
   )
 
-  const handleAddEvent = (eventData: Omit<CalendarEvent, "id">) => {
-    const newEvent = {
-      id: eventId,
-      ...eventData,
-    }
-    calendar?.events.add(newEvent)
-    setEvents((prev) => [...prev, newEvent])
-    setEventId((prev) => prev + 1)
-  }
-
   return {
     calendar,
-    events,
-    handleAddEvent,
   }
 }
 

@@ -9,7 +9,7 @@ import { EventModal } from "../../modals/EventModal"
 import useCalendar from "@/src/hooks/useCalendar.hook"
 
 function CalendarBlock() {
-  const { calendar, handleAddEvent } = useCalendar()
+  const { calendar } = useCalendar()
   const calendarRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -39,7 +39,7 @@ function CalendarBlock() {
   return (
     <div ref={calendarRef} className="size-full overflow-hidden">
       <ScheduleXCalendar calendarApp={calendar} />
-      <EventModal onAddEvent={handleAddEvent} />
+      <EventModal />
     </div>
   )
 }

@@ -8,6 +8,7 @@ import {
 import CalendarBlock from "@/src/components/blocks/calendar/cal"
 import { TodayPage } from "@/src/components/Today/TodayPage"
 import generateMetadataHelper from "@/src/utils/seo"
+import { useEvents } from "@/src/queries/useEvents"
 
 export const metadata: Metadata = generateMetadataHelper({
   path: "/today",
@@ -16,6 +17,9 @@ export const metadata: Metadata = generateMetadataHelper({
 })
 
 const Today: React.FC = () => {
+
+  const {} = useEvents()
+
   return (
     <div className="h-screen w-screen overflow-hidden">
       <ResizablePanelGroup direction="horizontal" className="h-full">

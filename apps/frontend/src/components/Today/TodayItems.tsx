@@ -11,9 +11,7 @@ import { RescheduleCalendar } from "@/src/components/Inbox/RescheduleCalendar/Re
 import { useAuth } from "@/src/contexts/AuthContext"
 import { useTimezone } from "@/src/hooks/useTimezone"
 import { CycleItem } from "@/src/lib/@types/Items/Cycle"
-import { Event } from "@/src/lib/@types/Items/event"
 import { useCycleItemStore } from "@/src/lib/store/cycle.store"
-import { useEventsStore } from "@/src/lib/store/events.store"
 import { getUserDate, getWeekDates } from "@/src/utils/datetime"
 
 interface TodayEventsProps {
